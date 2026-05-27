@@ -1,0 +1,7 @@
+# Default code owner for the repository
+* @Brisket604
+
+# Integration sources
+/custom_components/ @Brisket604
+/README.md @Brisket604
+/hacs.json @Brisket604

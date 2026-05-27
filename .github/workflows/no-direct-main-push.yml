@@ -1,0 +1,35 @@
+name: Guard main branch
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  block-direct-push:
+    name: Block direct push to main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enforce main update policy
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          ACTOR: ${{ github.actor }}
+          REF_NAME: ${{ github.ref_name }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          echo "event=$EVENT_NAME actor=$ACTOR ref=$REF_NAME"
+          echo "message=$COMMIT_MESSAGE"
+
+          if [[ "$EVENT_NAME" == "pull_request" ]]; then
+            echo "PR context detected, policy check passes."
+            exit 0
+          fi
+
+          # Strict on purpose: any push event on main fails this check.
+          echo "Direct push detected on main. Use a pull request."
+          exit 1
