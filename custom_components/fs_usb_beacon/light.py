@@ -61,6 +61,7 @@ class FsUsbBeaconLight(LightEntity):
     _attr_supported_color_modes: set[ColorMode] = {ColorMode.ONOFF}
     _attr_supported_features = LightEntityFeature.EFFECT
     _attr_effect_list = EFFECTS
+    _attr_icon = "mdi:alarm-light"
     _attr_should_poll = False
 
     def __init__(self, device: Any, entry: ConfigEntry) -> None:
