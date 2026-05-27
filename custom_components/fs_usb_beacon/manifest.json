@@ -1,0 +1,21 @@
+{
+  "domain": "fs_usb_beacon",
+  "name": "FS USB Beacon",
+  "version": "1.0.0",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "config_flow": true,
+  "single_config_entry": true,
+  "codeowners": [],
+  "requirements": [],
+  "loggers": ["custom_components.fs_usb_beacon"],
+  "usb": [
+    {
+      "vid": "340d",
+      "pid": "1710",
+      "description": "*Giants*"
+    }
+  ],
+  "dependencies": [],
+  "documentation": "https://github.com/Brisket604/homeassistant-fs-usb-beacon"
+}

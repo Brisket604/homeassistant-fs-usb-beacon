@@ -1,0 +1,45 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up FS USB Beacon",
+        "description": "Enter the USB Vendor ID and Product ID for your beacon. The Giants Software FS22 beacon uses VID **340d** and PID **1710**.",
+        "data": {
+          "vid": "Vendor ID (hex)",
+          "pid": "Product ID (hex)"
+        },
+        "data_description": {
+          "vid": "Hexadecimal vendor ID, e.g. 340d",
+          "pid": "Hexadecimal product ID, e.g. 1710"
+        }
+      },
+      "confirm": {
+        "title": "Confirm FS USB Beacon",
+        "description": "Set up the discovered USB beacon (VID **{vid}** / PID **{pid}**)?"
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot open the USB HID device. Ensure the beacon is plugged in and that you have the required HID access permissions (see README for udev rules on Linux).",
+      "invalid_vid_pid": "Invalid Vendor or Product ID. Enter them as hexadecimal values without the 0x prefix, e.g. **340d**."
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "FS USB Beacon options",
+        "description": "Tune runtime behavior for your beacon.",
+        "data": {
+          "default_effect": "Default effect",
+          "keepalive_interval": "Keepalive interval (seconds)"
+        },
+        "data_description": {
+          "default_effect": "Effect used when turning on without an explicit effect",
+          "keepalive_interval": "How often the integration resends the active command to prevent auto-off"
+        }
+      }
+    }
+  }
+}
