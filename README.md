@@ -206,4 +206,10 @@ target:
 
 ## License
 
-MIT
+This project is released under the MIT License.
+
+See [LICENSE.md](LICENSE.md).
+
+The repository references external protocol research and implementations in the
+References section. At this stage, those references are used as documentation
+and interoperability guidance, while this integration code is distributed under MIT.
